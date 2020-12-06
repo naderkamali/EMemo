@@ -6,9 +6,10 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Organization {
+public class User {
     @Id
     private String id;
+    private String org_id;
     private String name;
 
     public void setId(String id) {
@@ -19,8 +20,16 @@ public class Organization {
         this.name = name;
     }
 
+    public void setOrg_id(String org_id) {
+        this.org_id = org_id;
+    }
+
     public String getId() {
         return id;
+    }
+
+    public String getOrg_id() {
+        return org_id;
     }
 
     public String getName() {
