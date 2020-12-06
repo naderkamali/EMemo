@@ -1,6 +1,8 @@
 package com.example.demo.models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -8,6 +10,7 @@ import javax.persistence.Table;
 @Table
 public class User {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String org_id;
     private String name;
