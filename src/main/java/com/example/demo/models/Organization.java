@@ -9,6 +9,7 @@ import javax.persistence.Table;
 public class Organization {
     @Id
     private String id;
+
     private String name;
 
     public void setId(String id) {
@@ -26,5 +27,4 @@ public class Organization {
     public String getName() {
         return name;
     }
-
 }
