@@ -7,6 +7,8 @@ import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -18,5 +20,9 @@ public class UserService {
 
     public void postUser(User user) {
         userRepo.save(user);
+    }
+
+    public List<User> getUsers(String org_id) {
+        return userRepo.findAllByOrgID(org_id);
     }
 }

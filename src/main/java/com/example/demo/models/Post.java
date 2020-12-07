@@ -1,5 +1,7 @@
 package com.example.demo.models;
 
+import org.hibernate.annotations.GenericGenerator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,9 +12,11 @@ import javax.persistence.Table;
 @Table
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "system-uuid")
+    @GenericGenerator(name="system-uuid", strategy="uuid")
     private String id;
-    private String org_id;
+    private String orgID;
+    private String userID;
     private String title;
     private String content;
 
@@ -20,7 +24,7 @@ public class Post {
         this.id = id;
     }
 
-    public void setTitle(String name) {
+    public void setTitle(String title) {
         this.title = title;
     }
 
@@ -28,16 +32,8 @@ public class Post {
         this.content = content;
     }
 
-    public void setOrg_id(String org_id) {
-        this.org_id = org_id;
-    }
-
     public String getId() {
         return id;
-    }
-
-    public String getOrg_id() {
-        return org_id;
     }
 
     public String getTitle() {
@@ -48,4 +44,19 @@ public class Post {
         return content;
     }
 
+    public String getOrgID() {
+        return orgID;
+    }
+
+    public void setOrgID(String orgID) {
+        this.orgID = orgID;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
+    }
 }

@@ -19,9 +19,8 @@ public class PostService {
         return postRepo.findById(id).get();
     }
 
-    public List<Post> getOrgPosts(String orgId) {
-        return postRepo.findAll().stream().filter(post -> post.getOrg_id().equals(orgId)).collect(
-            Collectors.toList());
+    public List<Post> getOrgPosts(String orgID) {
+        return postRepo.findAllByOrgID(orgID);
     }
 
     public void postPost(Post post) {
@@ -32,7 +31,7 @@ public class PostService {
         postRepo.saveAndFlush(post);
     }
 
-    public void delete(Post post) {
-        postRepo.delete(post);
+    public void delete(String id) {
+        postRepo.deleteById(id);
     }
 }
